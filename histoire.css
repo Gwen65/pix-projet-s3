@@ -1,0 +1,72 @@
+/* MODE DEBUG
+* {
+	border: 1px solid red;
+} */
+
+body {
+	background-color: rgb(44, 47, 47);
+	background-image: url("assets/images/background.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center bottom;
+	font-family: 'Open Sans', 'Calibri';
+}
+
+.boutons {
+	display: inline-block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	margin: auto;
+	
+	width: 267px;
+	height: 418px;
+}
+
+.continuerButton {
+	background: url("assets/images/boutons/Continuer_1.png");
+	background-size: 267px 86px;
+	width: 267px;
+	height: 86px;
+	border: none;
+	outline: 0 none;
+}
+
+.continuerButton:hover {
+	background: url("assets/images/boutons/Continuer_2.png");
+	background-size: 267px 86px;
+}
+
+.nouveauButton {
+	background: url("assets/images/boutons/Nouveau_1.png");
+	background-size: 267px 86px;
+	width: 267px;
+	height: 86px;
+	border: none;
+	outline: 0 none;
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+
+.nouveauButton:hover {
+	background: url("assets/images/boutons/Nouveau_2.png");
+	background-size: 267px 86px;
+}
+
+.chapitresButton {
+	background: url("assets/images/boutons/Chapitres_1_lock.png");
+	background-size: 267px 86px;
+	width: 267px;
+	height: 86px;
+	border: none;
+	outline: 0 none;
+
+}
+/*
+.chapitresButton:hover {
+	background: url("assets/images/boutons/Chapitres_2.png");
+	background-size: 267px 86px;
+}
+*/

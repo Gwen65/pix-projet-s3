@@ -1,0 +1,41 @@
+/* MODE DEBUG
+* {
+	border: 1px solid red;
+} */
+
+body {
+	background-color: rgb(44, 47, 47);
+	background-image: url("assets/images/start.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center bottom;
+	font-family: 'Open Sans', 'Calibri';
+}
+
+.play {
+	display: inline-block;
+    position: fixed;
+    top: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	margin: auto;
+	
+	width: 267px;
+	height: 86px;
+	padding-bottom: 100px;
+}
+
+.playButton {
+	background: url("assets/images/boutons/Jouer_1.png");
+	background-size: 267px 86px;
+	width: 267px;
+	height: 86px;
+	border: none;
+	outline: 0 none;
+}
+
+.playButton:hover {
+	background: url("assets/images/boutons/Jouer_2.png");
+	background-size: 267px 86px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+	<title>Pix Série - Histoire</title>
+	<link rel="stylesheet" href="histoire.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+</head>
+
+<body>
+	<div class="boutons">
+		<button type="button" class="continuerButton" id="boutonContinuer" onclick="continuer()" />
+		<button type="button" class="nouveauButton" onclick="nouveau()" />
+		<button type="button" class="chapitresButton" onclick="chapitres()" />
+	</div>
+
+	<script>
+
+		if (!localStorage.derniersMessages) {
+			var boutonContinuer = document.getElementById("boutonContinuer");
+			boutonContinuer.style.background = 'url("assets/images/boutons/Continuer_1_lock.png")';
+			boutonContinuer.style.backgroundSize = '267px 86px';
+		}
+
+		function continuer() {
+			if (!localStorage.derniersMessages) {
+				// Le bouton ne fait rien
+			} else {
+				window.location.href = "phone.html";
+			}
+		}
+
+		function nouveau() {
+			localStorage.clear();
+			window.location.href = "phone.html";
+		}
+
+		function chapitres() {
+			// TO DO
+			// window.location.href = "chapitres.html";
+		}
+
+	</script>
+
+</body>
+
+</html>

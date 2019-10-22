@@ -1,0 +1,162 @@
+/* MODE DEBUG
+* {
+	border: 1px solid red;
+} */
+
+body {
+	background-color: rgb(44, 47, 47);
+	background-image: url("assets/images/phone_white.png"), url("assets/images/background.png");
+	background-repeat: no-repeat, no-repeat;
+	background-attachment: fixed, fixed;
+	background-position: center center, center bottom;
+	font-family: 'Open Sans', 'Calibri';
+}
+
+.divScreen {
+	display: inline-block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	margin: auto;
+	
+	width: 318px;
+	height: 515px;
+}
+
+div#divTitle {
+	background-color: #085f4b;
+	box-shadow: 0 4px 4px -2px #555;
+	position: relative;
+	z-index: 1;
+
+	margin-left: 21px;
+	margin-right: 21px;
+	height: 50px;
+}
+
+.tabTitle {
+	width: 276px;
+}
+
+p#title {
+	color: #FFF;
+	font-size: 18px;
+	margin: 0px;
+	margin-left: 15px;
+
+	height: 48px;
+	line-height: 48px;
+}
+
+.menuButton {
+	margin: 4px 4px 0px 0px;
+	background: url("assets/images/menu.png");
+	background-size: 25px 25px;
+	width: 25px;
+	height: 25px;
+	border: none;
+	outline: 0 none;
+}
+
+.menuButton:hover {
+	background: url("assets/images/menu_hover.png");
+	background-size: 25px 25px;
+}
+
+.menu {
+	background-color: white;
+	position: absolute;
+	z-index: 1;
+	right: 25px;
+	top: 5px;
+	display: none;
+	border-radius: 2px;
+	box-shadow: 0px 0px 5px black;
+	padding: 0px;
+	width: 130px;
+	height: 120px;
+}
+
+.menu table {
+	width: 130px;
+	height: 120px;
+	border-collapse: collapse;
+}
+
+.menu table tr td {
+	padding-left: 10px;
+	border-radius: 2px;
+}
+
+.menu table tr:hover {
+	background-color:#F4F4F4;
+}
+
+.item {
+	height: 38px;
+	line-height: 38px;
+	border-radius: 2px;
+	vertical-align: middle;
+}
+
+div#scrollDiv {
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
+
+	padding-left: 21px;
+	padding-right: 21px;
+	width: 270px;
+	height: 466px;
+}
+
+table#tabContacts {
+	height: 466px;
+	width: 277px;
+	background-color: #FEFEFE;
+	border-collapse: collapse;
+}
+
+img.contactImg {
+	width: 40px;
+	height: 40px;
+	margin: 5px 5px 0px 5px;
+}
+
+.nom {
+	margin: 0px;
+	margin-top: 10px;
+}
+
+.apercu {
+	color: #909090;
+	font-size: 12px;
+	margin: 0px;
+	margin-bottom: 10px;
+}
+
+table#tabContacts tr {
+	border-style: solid;
+	border-color: #F1F1F1;
+	border-width: 0px 0px 1px 0px;
+	width: 218px;
+}
+
+table#tabContacts tr:hover {
+	background-color:#F4F4F4;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+button::-moz-focus-inner { 
+	border: 0; 
+}
+
+button:focus, button:active {
+	outline:none;
+}

@@ -1,0 +1,70 @@
+/* MODE DEBUG
+* {
+	border: 1px solid red;
+} */
+
+body {
+	background-color: rgb(44, 47, 47);
+	background-image: url("assets/images/background.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center bottom;
+	font-family: 'Open Sans', 'Calibri';
+}
+
+.boutons {
+	display: inline-block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	margin: auto;
+	
+	width: 267px;
+	height: 418px;
+}
+
+.histoireButton {
+	background: url("assets/images/boutons/Histoire_1.png");
+	background-size: 267px 86px;
+	width: 267px;
+	height: 86px;
+	border: none;
+	outline: 0 none;
+}
+
+.histoireButton:hover {
+	background: url("assets/images/boutons/Histoire_2.png");
+	background-size: 267px 86px;
+}
+
+.competencesButton {
+	background: url("assets/images/boutons/Competences_1.png");
+	background-size: 267px 86px;
+	width: 267px;
+	height: 86px;
+	border: none;
+	outline: 0 none;
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+
+.competencesButton:hover {
+	background: url("assets/images/boutons/Competences_2.png");
+	background-size: 267px 86px;
+}
+
+.glossaireButton {
+	background: url("assets/images/boutons/Glossaire_1.png");
+	background-size: 267px 86px;
+	width: 267px;
+	height: 86px;
+	border: none;
+	outline: 0 none;
+}
+
+.glossaireButton:hover {
+	background: url("assets/images/boutons/Glossaire_2.png");
+	background-size: 267px 86px;
+}

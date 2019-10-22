@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+	<title>Pix Série - Glossaire</title>
+	<link rel="stylesheet" href="glossaire.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
+	<!-- Fichier de données des mots du glossaire -->
+	<script src="assets/glossaire.js"></script>
+
+</head>
+
+<body>
+
+	<div id="scrollDiv">
+		<table id="tabGlossaire">
+		</table>
+	</div>
+
+	<script>
+
+		// Variables pour gérer le contenu sur la page
+		const tabGlossaire = document.getElementById("tabGlossaire");
+
+		var nbMot = 0;
+
+		for (let g in glossaire) {
+			let cell = tabGlossaire.insertRow(nbMot).insertCell(0);
+			cell.innerHTML = '<h2>' + glossaire[g].mot + '</h2>' + glossaire[g].def;
+			for (let w in glossaire[g].warn) {
+				cell.innerHTML += '<p><div class="warn">' + glossaire[g].warn[w] + '</div></p>';
+			}
+			nbMot++;
+		}
+
+	</script>
+
+</body>
+
+</html>

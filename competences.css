@@ -1,0 +1,26 @@
+/* MODE DEBUG
+* {
+	border: 1px solid red;
+} */
+
+body {
+	background-color: rgb(44, 47, 47);
+	background-image: url("assets/images/bg_competences.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center bottom;
+	font-family: 'Open Sans', 'Calibri';
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+button::-moz-focus-inner { 
+	border: 0; 
+}
+
+button:focus, button:active {
+	outline:none;
+}

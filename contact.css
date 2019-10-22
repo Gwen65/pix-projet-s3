@@ -1,0 +1,194 @@
+/* MODE DEBUG
+* {
+	border: 1px solid red;
+} */
+
+body {
+	background-color: rgb(44, 47, 47);
+	background-image: url("assets/images/phone_white.png"), url("assets/images/background.png");
+	background-repeat: no-repeat, no-repeat;
+	background-attachment: fixed, fixed;
+	background-position: center center, center bottom;
+	font-family: 'Open Sans', 'Calibri';
+}
+
+.divScreen {
+	display: inline-block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	margin: auto;
+	
+	width: 318px;
+	height: 515px;
+}
+
+div#divContact {
+	background-color: #085F4B;
+	box-shadow: 0 4px 4px -2px #555;
+	position: relative;
+	z-index: 1;
+
+	margin-left: 22px;
+	margin-right: 22px;
+	height: 50px;
+}
+
+p#contactName {
+	color: #FFF;
+	font-size: 18px;
+	margin: 0px;
+
+	height: 48px;
+	line-height: 48px;
+}
+
+img#contactImg {
+	width: 30px;
+	height: 30px;
+	margin: 5px 5px 0px 0px;
+}
+
+.backButton {
+	background: url("assets/images/back_button.png");
+	background-size: 30px 30px;
+	width: 30px;
+	height: 30px;
+	border: none;
+	outline: 0 none;
+	margin-top: 5px;
+}
+
+.backButton:hover {
+	background: url("assets/images/back_button_hover.png");
+	background-size: 30px 30px;
+}
+
+div#scrollDiv {
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
+
+	padding-left: 22px;
+	padding-right: 22px;
+	width: 268px;
+	height: 415px;
+}
+
+table#tabMessages {
+	width: 274px;
+}
+
+span.contact {
+	color: gray;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+span.H {
+	color: #2c2f2f;
+}
+
+span.Alice {
+	color: #d41f00;
+}
+
+span.Benjamin {
+	color: #55BF00;
+}
+
+span.Nathan {
+	color: #FF9FFF;
+}
+
+span.Ninon {
+	color: #9b9b9b;
+}
+
+span.Galoup {
+	color: #2a3faa;
+}
+
+span.Jeanne {
+	color: #7f3faa;
+}
+
+span.Julien {
+	color: #2ADFFF;
+}
+
+span.Marco {
+	color: #ff9f00;
+}
+
+.inputZone {
+	margin: auto;
+	padding: 0px;
+	width: 274px;
+}
+
+textarea {
+	border-radius: 30px;
+	font-family: 'Open Sans', 'Calibri';
+	border: 1px solid #ccc;
+	box-shadow: 1px 1px 1px #999;
+	resize: none;
+	outline: 0 none;
+	overflow: hidden;
+	font-size: 14px;
+
+	height: 20px;
+	margin-left: 3px;
+	width: 188px;
+	padding: 10px 15px 10px 15px;
+}
+
+.sendButton {
+	background: url("assets/images/send_button.png");
+	background-size: 40px 40px;
+	border-radius: 20px;
+	box-shadow: 1px 1px 1px #999;
+	width: 40px;
+	height: 40px;
+	border: none;
+	outline: 0 none;
+
+	margin-right: 3px;
+}
+
+.sendButton:hover {
+	background: url("assets/images/send_button_hover.png");
+	background-size: 40px 40px;
+}
+
+.message {
+	width: auto;
+	border-radius: 5px;
+	font-size: 14px;
+	display: table;
+	box-shadow: 1px 1px 1px #999;
+
+	padding: 5px 10px;
+	margin: 1px 5px 0px 5px;
+}
+
+.exp {
+	background-color: #E2FFC4;
+	float: right;
+	max-width: 200px;
+}
+
+.des {
+	background-color: #F8F8F6;
+	max-width: 200px;
+}
+
+button::-moz-focus-inner { 
+	border: 0; 
+}
+
+button:focus, button:active {
+	outline: none;
+}

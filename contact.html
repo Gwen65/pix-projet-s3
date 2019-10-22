@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+	<title>Pix Série - Conversation</title>
+	<link rel="stylesheet" href="contact.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
+	<!-- Custom Scrollbar (https://github.com/utatti/perfect-scrollbar) -->
+	<link rel="stylesheet" href="assets/dist/perfect-scrollbar.css">
+	<script src="assets/dist/perfect-scrollbar.min.js"></script>
+
+	<!-- Fichier de données liées au scénario -->
+	<script src="assets/scenario.js"></script>
+</head>
+
+<body>
+
+	<div class="divScreen">
+		<div id="divContact">
+			<table>
+				<tr>
+					<td><button type="button" class="backButton" onclick="contactsList()" /></td>
+					<td><img src="assets/images/characters/Contact.png" id="contactImg" /></td>
+					<td>
+						<p id="contactName">Contact</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="scrollDiv">
+			<table id="tabMessages">
+			</table>
+		</div>
+		<table class="inputZone">
+			<tr>
+				<td><textarea id="messageArea" onkeypress="return enterKey(event)" rows="1"
+						placeholder="Taper message"></textarea></td>
+				<td><button type="button" class="sendButton" onclick="send()" /></td>
+			</tr>
+		</table>
+	</div>
+
+	<script>
+
+		// Variables pour gérer le contenu sur la page
+		const tabMessages = document.getElementById("tabMessages");
+		const scrollBar = document.getElementById("scrollDiv");
+		const contactName = document.getElementById("contactName");
+		const contactImg = document.getElementById("contactImg");
+		const ps = new PerfectScrollbar(scrollBar, {
+			wheelSpeed: 0.4,
+			minScrollbarLength: 20
+		});
+		const contact = decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape("contact").replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+
+		// Variables pour suivre l'avancement du scénario
+		var nbMessages = 0;
+		var nbIndice = localStorage.getItem("nbIndice") == null ? 0 : localStorage.getItem("nbIndice");
+		var nbScene = localStorage.getItem("nbScene") == null ? 0 : localStorage.getItem("nbScene");
+		var nbChapitre = localStorage.getItem("nbChapitre") == null ? 0 : localStorage.getItem("nbChapitre");
+		var nbMessagesScene = localStorage.getItem("nbMessagesScene") == null ? 0 : localStorage.getItem("nbMessagesScene");
+
+		// Variables concernant le scénario
+		var indices, dialogues, question;
+		var messages = localStorage.getItem("dialogues" + contact) == null ? [] : JSON.parse(localStorage.getItem("dialogues" + contact));
+		var derniersMessages = JSON.parse(localStorage.getItem("derniersMessages"));
+		var destinataire = chapitres[nbChapitre].scenes[nbScene].contact;
+
+		// Fonction pour récupérer les données de la scène en cours
+		function getScene(nbChapitre, nbScene) {
+			if (chapitres[nbChapitre] != null) {
+				if (chapitres[nbChapitre].scenes[nbScene] != null) {
+					if (chapitres[nbChapitre].scenes[nbScene].contact == contact) {
+						dialogues = chapitres[nbChapitre].scenes[nbScene].dialogues;
+					}
+					indices = chapitres[nbChapitre].indices;
+					question = chapitres[nbChapitre].question;
+				} else {
+					indices = null;
+					dialogues = null;
+					question = null;
+				}
+			}
+		}
+
+		// Fonction pour ajouter un message
+		function addNewMessage(text, exp) {
+			let cell = tabMessages.insertRow(nbMessages).insertCell(0);
+			if (exp == "Julien") {
+				cell.innerHTML = '<img src="assets/images/typing.gif" style="width: 40px; height: 40px; float: right;" />';
+				scrollBar.scrollTo(0, scrollBar.scrollHeight);
+				setTimeout(function () {
+					cell.innerHTML = '<div class="message exp">' + text + '</div>';
+				}, 1000);
+			} else {
+				cell.innerHTML = '<img src="assets/images/typing.gif" style="width: 40px; height: 40px;" />';
+				scrollBar.scrollTo(0, scrollBar.scrollHeight);
+				setTimeout(function () {
+					cell.innerHTML = '<div class="message des"><span class="contact ' + exp + '">' + exp + '</span><br>' + text + '</div>';;
+				}, 1000);
+			}
+			let message = {};
+			message.texte = text;
+			message.perso = exp;
+			messages.push(message);
+			localStorage.setItem("dialogues" + contact, JSON.stringify(messages));
+			derniersMessages[contact] = text.replace(/<[^>]*>/gi, "");
+			localStorage.setItem("derniersMessages", JSON.stringify(derniersMessages));
+			scrollBar.scrollTo(0, scrollBar.scrollHeight);
+			ps.update();
+			nbMessages++;
+		}
+
+		// Fonction pour ajouter tous les anciens messages d'un coup
+		function addAllMessages() {
+			let allMessages = JSON.parse(localStorage.getItem("dialogues" + contact));
+			if (allMessages != null) {
+				for (let i = 0; i < allMessages.length; i++) {
+					let line = tabMessages.insertRow(nbMessages);
+					let cell = line.insertCell(0);
+					if (allMessages[i].perso == "Julien")
+						cell.innerHTML = '<div class="message exp">' + allMessages[i].texte + '</div>';
+					else
+						cell.innerHTML = '<div class="message des"><span class="contact ' + allMessages[i].perso + '">' + allMessages[i].perso + '</span><br>' + allMessages[i].texte + '</div>';
+					scrollBar.scrollTo(0, scrollBar.scrollHeight);
+					ps.update();
+					nbMessages++;
+				}
+			}
+		}
+
+		// Fonction pour ajouter les messages les uns après les autres
+		function playScene() {
+			document.getElementById("messageArea").disabled = true;
+			if (dialogues != null) {
+				if (nbMessagesScene < dialogues.length) {
+					let phrase = dialogues[nbMessagesScene];
+					addNewMessage(phrase.message, phrase.perso);
+					nbMessagesScene++;
+					localStorage.setItem("nbMessagesScene", nbMessagesScene);
+					setTimeout(playScene, 1500);
+				} else {
+					document.getElementById("messageArea").disabled = false;
+					derniersMessages[chapitres[nbChapitre].scenes[nbScene].suite] = "<span style='color: red'>Nouveaux messages</span>";
+					localStorage.setItem("derniersMessages", JSON.stringify(derniersMessages));
+					if (nbScene - 1 + 2 < chapitres[nbChapitre].scenes.length) {
+						nbScene++;
+						localStorage.setItem("nbScene", nbScene);
+						nbMessagesScene = 0;
+						localStorage.setItem("nbMessagesScene", 0);
+						getScene(nbChapitre, nbScene);
+					}
+				}
+			} else {
+				document.getElementById("messageArea").disabled = false;
+			}
+		}
+
+		// Fonction liée au bouton pour envoyer un message
+		function send() {
+			let text = document.getElementById("messageArea").value;
+			if (text != "") {
+				document.getElementById("messageArea").value = "";
+				let line = tabMessages.insertRow(nbMessages);
+				let cell = line.insertCell(0);
+				cell.innerHTML = '<div class="message exp">' + text + '</div>';
+				let message = {};
+				message.texte = text;
+				message.perso = "Julien";
+				messages.push(message);
+				localStorage.setItem("dialogues" + contact, JSON.stringify(messages));
+				derniersMessages[contact] = text;
+				localStorage.setItem("derniersMessages", JSON.stringify(derniersMessages));
+				scrollBar.scrollTo(0, scrollBar.scrollHeight);
+				ps.update();
+				nbMessages++;
+				verifReponse(text);
+			}
+		}
+
+		// Fonction de traitement de la réponse envoyée par l'utilisateur
+		function verifReponse(text) {
+			text = text.toLowerCase();
+			if (question.perso == contact) {
+				if (question.reponses.includes(text)) {
+					addNewMessage(question.reussite, contact);
+					if (nbChapitre - 1 + 2 < chapitres.length) {
+						nbScene = 0;
+						nbChapitre++;
+						nbMessagesScene = 0;
+						nbIndice = 0;
+						localStorage.setItem("nbScene", nbScene);
+						localStorage.setItem("nbChapitre", nbChapitre);
+						localStorage.setItem("nbMessagesScene", nbMessagesScene);
+						localStorage.setItem("nbIndice", nbIndice);
+						getScene(nbChapitre, nbScene);
+						setTimeout(playScene, 1500);
+					} else {
+						setTimeout(achat, 1600);
+					}
+				} else {
+					addNewMessage(question.erreurs, contact);
+				}
+			}
+			if (text == "aide moi" && contact == "Alice") {
+				if (indices != null) {
+					if (nbIndice == indices.length) {
+						addNewMessage("Je ne vais pas tout faire à ta place", contact);
+					} else {
+						addNewMessage(indices[nbIndice].message, contact);
+						nbIndice++;
+						localStorage.setItem("nbIndice", nbIndice);
+					}
+				}
+			}
+		}
+
+		// Fonction pour initialiser les infos du contact dans la barre en haut
+		function setContactInfos() {
+			contactName.innerHTML = contact;
+			contactImg.src = "assets/images/characters/" + contact + ".png";
+		}
+
+		// Fonction pour retourner à la liste des contacts
+		function contactsList() {
+			window.location.href = "phone.html";
+		}
+
+		// Fonction pour envoyer le message en appuyant sur 'Entrée'
+		function enterKey(event) {
+			let key = event.which || event.keyCode;
+			if (key === 13) {
+				send();
+				return false;
+			}
+			return true;
+		}
+
+		function achat() {
+			if (window.confirm("Vous avez terminé la démo !\nAchetez-dès à présent le jeu complet et ses extensions sur notre magasin en ligne.")) {
+				window.location.href = "https://youtu.be/dQw4w9WgXcQ";
+			};
+		}
+
+		// document.addEventListener('click', function (event) { });
+
+		// Initialisation, début du dialogue
+		setContactInfos();
+		addAllMessages();
+		getScene(nbChapitre, nbScene);
+		playScene();
+
+	</script>
+
+</body>
+
+</html>
