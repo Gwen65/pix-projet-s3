@@ -25,6 +25,31 @@ body {
 	height: 515px;
 }
 
+.divButtonMenu {
+	position: absolute;
+  	margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+  	transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+  	left: 50%;
+  	width: 318px;
+  	height: 625px;
+  	margin-left: -159px;
+  	z-index: 0;
+}
+
+
+.bouton_retour_menu {
+    width: 28px;
+    height: 28px;
+    border-radius: 20px;
+    border-style: solid;
+  	border-color: darkgrey;
+    position: absolute;
+    bottom: 2.5%;
+    left: 50%;
+    margin-left: -15px;
+    box-shadow: inset -1px -1px 0px rgba(255,255,255,.2);
+  }
+
 div#divContact {
 	background-color: #085F4B;
 	box-shadow: 0 4px 4px -2px #555;
