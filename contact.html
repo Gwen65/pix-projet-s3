@@ -18,6 +18,10 @@
 
 <body>
 
+<div class="divButtonMenu">
+	<div class="bouton_retour_menu" onclick="contactsList()"></div>
+</div>
+
 	<div class="divScreen">
 		<div id="divContact">
 			<table>
@@ -94,13 +98,13 @@
 				scrollBar.scrollTo(0, scrollBar.scrollHeight);
 				setTimeout(function () {
 					cell.innerHTML = '<div class="message exp">' + text + '</div>';
-				}, 1000);
+				}, 2000);
 			} else {
 				cell.innerHTML = '<img src="assets/images/typing.gif" style="width: 40px; height: 40px;" />';
 				scrollBar.scrollTo(0, scrollBar.scrollHeight);
 				setTimeout(function () {
 					cell.innerHTML = '<div class="message des"><span class="contact ' + exp + '">' + exp + '</span><br>' + text + '</div>';;
-				}, 1000);
+				}, 2000);
 			}
 			let message = {};
 			message.texte = text;
@@ -141,7 +145,7 @@
 					addNewMessage(phrase.message, phrase.perso);
 					nbMessagesScene++;
 					localStorage.setItem("nbMessagesScene", nbMessagesScene);
-					setTimeout(playScene, 1500);
+					setTimeout(playScene, 2500);
 				} else {
 					document.getElementById("messageArea").disabled = false;
 					derniersMessages[chapitres[nbChapitre].scenes[nbScene].suite] = "<span style='color: red'>Nouveaux messages</span>";
@@ -197,9 +201,9 @@
 						localStorage.setItem("nbMessagesScene", nbMessagesScene);
 						localStorage.setItem("nbIndice", nbIndice);
 						getScene(nbChapitre, nbScene);
-						setTimeout(playScene, 1500);
+						setTimeout(playScene, 2500);
 					} else {
-						setTimeout(achat, 1600);
+						setTimeout(achat, 2600);
 					}
 				} else {
 					addNewMessage(question.erreurs, contact);
