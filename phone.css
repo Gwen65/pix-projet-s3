@@ -185,3 +185,97 @@ button::-moz-focus-inner {
 button:focus, button:active {
 	outline:none;
 }
+
+
+
+
+
+
+
+.popup {
+    width: 900px;
+    margin: auto;
+    text-align: center;
+}
+.popup img {
+    width: 1157px;
+    height: 650px;
+    cursor: pointer;
+}
+.show {
+    z-index: 2000;
+    display: none;
+}
+.show .overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.66);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.show .img-show {
+    width: 1157px;
+    height: 650px;
+    background: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+}
+.img-show span {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+    cursor: pointer;
+    color: white;
+}
+.img-show img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*End style*/
+
+
+
+.mySlider {
+  display: block;
+  margin: 0 auto;
+}
+.btn {
+  width: 200px;
+  height: 64.5px;
+  text-align: center;
+  cursor: pointer;
+}
+#btnPrev {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: url("assets/images/boutons/Bouton_Retour.png") no-repeat;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+}
+#btnPrev:hover {
+  background: url("assets/images/boutons/Bouton_Retour_hover.png") no-repeat;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+}
+#btnNext {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: url("assets/images/boutons/Bouton_Suivant.png") no-repeat;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+}
+#btnNext:hover {
+  background: url("assets/images/boutons/Bouton_Suivant_hover.png") no-repeat;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+}
