@@ -6,15 +6,16 @@ var chapitres = [
 			{
 				contact: "Alice",
 				dialogues: [
-					{ perso: "Alice", message: "Alors, prêt pour le début du jeu ?" },
-					{ perso: "Julien", message: "Évidemment. T'es où ?" },
+					{ perso: "Alice", message: "Salut Julien" },
+					{ perso: "Alice", message: "Tu vas bien ?" },
+					{ perso: "Alice", message: "Prêt pour le début du jeu ?" },
+					{ perso: "Julien", message: "Évidemment Alice. T'es où ?" },
 					{ perso: "Julien", message: "Moi je suis en salle informatique" },
 					{ perso: "Alice", message: "À la BU" },
-					{ perso: "Alice", message: "Je ne suis pas la seule à attendre le début du jeu" },
-					{ perso: "Alice", message: "Certains ont l’air tendu 😄" },
-					{ perso: "Julien", message: "C’est normal, beaucoup veulent rejoindre l’Organisation" },
+					{ perso: "Alice", message: "La première énigme ne va pas tarder" },
 					{ perso: "Julien", message: "On va tous recevoir quelque chose sur nos portables ?" },
 					{ perso: "Alice", message: "Oui, une photo, un code, une citation…" },
+					{ perso: "Alice", message: "Envoyé par H, le Maître du jeu" },
 					{ perso: "Alice", message: "C’est comme ça que le jeu commence" },
 					{ perso: "Alice", message: "Ça y est on a reçu le premier message ! 😱" }
 				],
@@ -30,7 +31,8 @@ var chapitres = [
 			{
 				contact: "Alice",
 				dialogues: [
-					{ perso: "Alice", message: "Bon c'est facile, il suffit de rentrer son nom" }
+					{ perso: "Alice", message: "Bon c'est facile" },
+					{ perso: "Alice", message: "Il suffit de répondre \"moi\"" }
 				]
 			}
 		],
@@ -45,7 +47,7 @@ var chapitres = [
 		scenes: [{
 			contact: "H",
 			dialogues: [
-				{ perso: "H", message: "<a href='https://drive.google.com/file/d/1TjCTBTRP_a5GkBazDxkP1BjcFIWnfab1/view?usp=sharing' target='_blank'>Clique sur ce lien</a>" },
+				{ perso: "H", message: "<a href='https://www.univ-jfc.fr/albi' target='_blank'>Clique sur ce lien</a>" },
 				{ perso: "H", message: "Quelle heure est-il ?" }
 			],
 			suite: "Alice"
@@ -54,25 +56,24 @@ var chapitres = [
 			contact: "Alice",
 			dialogues: [
 				{ perso: "Alice", message: "Ok j'ai trouvé" },
-				{ perso: "Alice", message: "Julien, si tu as besoin d'aide, demande moi en privé" },
-				{ perso: "Julien", message: "Aide moi Ô Puissante Alice" },
-				{ perso: "Alice", message: "\"Aide moi\" suffira" }
+				{ perso: "Alice", message: "Julien, tu peux me demander de l’aide si besoin" },
+				{ perso: "Alice", message: "Il te suffit de m’envoyer \"aide moi\"" }
 			]
 		}],
 		question: {
 			perso: "H",
-			reponses: ["01:45", "1:45", "01h45", "1h45", "13:45", "13h45"],
+			reponses: ["02:40", "2:40", "02h40", "2h40", "14:40", "14h40"],
 			erreurs: "Non ce n'est pas ça. Les apparences sont parfois trompeuses",
 			reussite: "Félicitations"
 		},
 		indices: [
 			{
 				perso: "Alice",
-				message: "La photo est modifiée"
+				message: "Il faut regarder l’image interactive en bas de la page et envoyer l’horaire de l’horloge"
 			},
 			{
 				perso: "Alice",
-				message: "Télécharge la photo, puis fais une recherche par image inversée"
+				message: "Les flèches de navigation t’aident à te déplacer dans l’image"
 			}
 		]
 	}

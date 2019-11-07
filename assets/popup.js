@@ -1,9 +1,14 @@
 $(function () {
     "use strict";
     $(".show").fadeIn();
+    /**
     $("span, .overlay").click(function () {
         $(".show").fadeOut();
     });
+    $("span").click(function () {
+        window.location.href = "index.html";
+    });
+    **/
 });
 
 
@@ -18,8 +23,8 @@ var num = 0;
 function next() {
   var slider = document.getElementById("slider");
   num++;
-  if ( num >= images.length-1 ) {
-    document.getElementById("btnNext").style.visibility="hidden";
+  if ( num > images.length-1 ) {
+    $(".show").fadeOut();
   }
   slider.src = images[num];
   document.getElementById("btnPrev").style.visibility="visible";

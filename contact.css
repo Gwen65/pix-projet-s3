@@ -91,6 +91,21 @@ img#contactImg {
 	background-size: 30px 30px;
 }
 
+.retourr {
+	background: url("assets/images/back_button_new.png");
+	background-size: 30px 30px;
+	width: 30px;
+	height: 30px;
+	border: none;
+	outline: 0 none;
+	margin-top: 5px;
+}
+
+.retourr:hover {
+	background: url("assets/images/back_button_new_hover.png");
+	background-size: 30px 30px;
+}
+
 div#scrollDiv {
 	overflow-y: auto;
 	overflow-x: hidden;

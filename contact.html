@@ -26,7 +26,7 @@
 		<div id="divContact">
 			<table>
 				<tr>
-					<td><button type="button" class="backButton" onclick="contactsList()" /></td>
+					<td><button type="button" class="backButton" id="retour" onclick="contactsList()" /></td>
 					<td><img src="assets/images/characters/Contact.png" id="contactImg" /></td>
 					<td>
 						<p id="contactName">Contact</p>
@@ -148,10 +148,12 @@
 					setTimeout(playScene, 2500);
 				} else {
 					document.getElementById("messageArea").disabled = false;
+					// document.getElementById("retour").className = "retourr";
 					derniersMessages[chapitres[nbChapitre].scenes[nbScene].suite] = "<span style='color: red'>Nouveaux messages</span>";
 					localStorage.setItem("derniersMessages", JSON.stringify(derniersMessages));
 					if (nbScene - 1 + 2 < chapitres[nbChapitre].scenes.length) {
 						nbScene++;
+						document.getElementById("retour").className = "retourr";
 						localStorage.setItem("nbScene", nbScene);
 						nbMessagesScene = 0;
 						localStorage.setItem("nbMessagesScene", 0);
