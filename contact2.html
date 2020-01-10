@@ -83,7 +83,7 @@
 						dialogues = chapitres[nbChapitre].scenes[nbScene].dialogues;
 					}
 					indices = chapitres[nbChapitre].indices;
-					if (nbChapitre == 3){
+					if (nbChapitre == 4){
 						for (i = 0; i < chapitres[nbChapitre].questions.length; i++) {
 							questions[i] = chapitres[nbChapitre].questions[i];
 						}
@@ -194,7 +194,7 @@
 				scrollBar.scrollTo(0, scrollBar.scrollHeight);
 				ps.update();
 				nbMessages++;
-				if (nbChapitre == 3){
+				if (nbChapitre == 4){
 						verifReponse2(text);
 				}
 				else{
