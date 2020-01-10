@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+	<title>Pix Série - ASCII</title>
+
+	<!-- Custom Scrollbar (https://github.com/utatti/perfect-scrollbar) -->
+	<link rel="stylesheet" href="sitesAnnexes.css">
+
+	
+
+</head>
+
+<body>
+
+<canvas id="canv"></canvas>
+
+</body>
+</html>
+
+<script>
+document.ready(function(){
+  var c = document.getElementById('canv');
+  var $ = c.getContext('2d');
+  c.width = 1150; c.height = 600; 
+  var ms = false;
+  var w = 0, h = 0;
+  
+  var img = new Image();
+  img.src = 'assets/images/ASCII2.png';
+  
+  var set = function(){
+    var run, _h, _w, dx, a;
+    w = img.width;
+    h = img.height;
+    $.translate(20, 20);
+    // Intensité du Glitch
+    a = 20;
+    dx = 0;
+    _w = w + 20;
+    _h = h + 20;
+    return (run = function() {
+      var inc, i, j;
+      $.clearRect(-a, -a, _w, _h);
+      inc = ms === true ? 0.5 : 0.18;
+      for (j=0; j <= h; i = 0 <= h ? ++j : --j) {
+        dx = ~~(inc * (Math.random() - 0.5) * a);
+        $.drawImage(img, 0, i, w, 1, dx, i, w, 1);
+      }
+      window.requestAnimationFrame(run);
+    })();
+  };
+  img.onload = function(){
+    return set();
+  };
+  c.addEventListener('mouseover', function(){
+    return ms = true;
+  }, false);
+  c.addEventListener('touchmove',function(e){
+    e.preventDefault();
+    return ms = true;
+  }, false);
+  c.addEventListener('mouseout', function(){
+    return ms = false;
+  }, false);
+  c.addEventListener('touchend',function(){
+    return ms = false;
+  }, false);
+}());
+</script>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+	<title>Pix Série - Contacts</title>
+	<link rel="stylesheet" href="phone.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
+	<!-- Custom Scrollbar (https://github.com/utatti/perfect-scrollbar) -->
+	<link rel="stylesheet" href="assets/dist/perfect-scrollbar.css">
+	<script src="assets/dist/perfect-scrollbar.min.js"></script>
+
+	<!-- Fichier de données liées au scénario -->
+	<script src="assets/scenario2.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="assets/popup.js"></script>
+</head>
+
+
+<body>
+
+<div class="divButtonMenu">
+	<div class="bouton_retour_menu"></div>
+</div>
+
+
+	<div class="divScreen">
+		<div id="divTitle">
+			<table class="tabTitle">
+				<tr>
+					<td>
+						<p id="title">Messages</p>
+					</td>
+					<td align="right"><button type="button" class="menuButton" onclick="openMenu()" /></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="menu" id="menu">
+			<table>
+				<tr>
+					<td><a href="glossaire.html"><div class="item">Glossaire</div></a></td>
+				</tr>
+					<tr>
+						<td><a href="competences.html"><div class="item">Compétences</div></a></td>
+					</tr>
+				</a>
+					<tr>
+						<td><a href="index.html"><div class="item">Accueil</div></a></td>
+					</tr>
+				</a>
+			</table>
+		</div>
+
+		<div id="scrollDiv">
+			<table id="tabContacts">
+
+			</table>
+		</div>
+	</div>
+
+	<!-- POPUP -->
+<div class="show">
+  <div class="overlay"></div>
+  
+  <div class="img-show">
+    <!--<span>QUITTER</span>-->
+    <img src="assets/images/popup1.png" class="mySlider" id="slider">
+    <div class="btn" id="btnNext" onclick="next()"></div>
+    <div class="btn" id="btnPrev" onclick="prev()" style="visibility: hidden;"></div>
+  </div>
+</div>
+<!--End image popup-->
+
+
+	<script>
+
+		// Variables pour gérer le contenu sur la page
+		const tabContacts = document.getElementById("tabContacts");
+		const scrollBar = document.getElementById("scrollDiv");
+		const menu = document.getElementById("menu");
+		const ps = new PerfectScrollbar(scrollBar, {
+			wheelSpeed: 0.4,
+			minScrollbarLength: 20
+		});
+
+		var nbContacts = 0, derniersMessages, menuOuvert = false;
+
+		if (localStorage.getItem("derniersMessages") == null) {
+			derniersMessages = {
+				"Alice, Benjamin": " ",
+				"H": " ",
+				"Alice": " ",
+				"Benjamin": " ",
+				"Nathan": " ",
+				"Ninon": " ",
+				"Galoup": " ",
+				"Jeanne": " ",
+				"Marco": " "
+			};
+			localStorage.setItem("derniersMessages", JSON.stringify(derniersMessages));
+		} else {
+			derniersMessages = JSON.parse(localStorage.getItem("derniersMessages"));
+		}
+
+		// Fonction pour afficher tous les contacts
+		function addContacts() {
+			for (let c in contacts) {
+				let cell = tabContacts.insertRow(nbContacts).insertCell(0);
+				if(contacts[c] == "H") {
+					cell.innerHTML = '<a href="contact2.html?contact=' + contacts[c]
+					+ '"><table><tr><td rowspan="2"><img src="assets/images/characters/' + contacts[c]
+					+ '.png" class="contactImg" /></td><td><p class="nom">' + contacts[c]
+					+ '</p></td></tr><tr><td><p class="apercu">' + '<span style="color: red">Nouveaux messages</span>'
+					+ '</p></td></tr></table></a>';
+					}
+				else {
+				cell.innerHTML = '<a href="contact2.html?contact=' + contacts[c]
+					+ '"><table><tr><td rowspan="2"><img src="assets/images/characters/' + contacts[c]
+					+ '.png" class="contactImg" /></td><td><p class="nom">' + contacts[c]
+					+ '</p></td></tr><tr><td><p class="apercu">' + derniersMessages[contacts[c]]
+					+ '</p></td></tr></table></a>';
+				}
+				nbContacts++;
+			}
+		}
+
+		// Fonction pour ouvrir le menu
+		function openMenu() {
+			menu.style.display = 'block';
+			menuOuvert = true;
+		}
+
+		// Fonction pour fermer le menu
+		document.addEventListener('click', function (event) {
+			if (!menuOuvert) {
+				menu.style.display = 'none';
+				menuOuvert = false;
+			} else {
+				menuOuvert = false;
+			}
+		});
+
+		addContacts();
+
+
+	</script>
+
+
+</body>
+
+</html>

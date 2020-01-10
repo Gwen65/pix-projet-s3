@@ -24,3 +24,30 @@ button::-moz-focus-inner {
 button:focus, button:active {
 	outline:none;
 }
+
+.boutons {
+	display: inline-block;
+    position: fixed;
+    top: 150;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	margin: auto;
+	
+	width: 267px;
+	height: 418px;
+}
+
+.programmerButton {
+	background: url("assets/images/boutons/Bouton_programmer.png");
+	background-size: 267px 86px;
+	width: 267px;
+	height: 86px;
+	border: none;
+	outline: 0 none;
+}
+
+.programmerButton:hover {
+	background: url("assets/images/boutons/Bouton_programmer_hover.png");
+	background-size: 267px 86px;
+}
