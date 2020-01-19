@@ -50,6 +50,10 @@ body {
     box-shadow: inset -1px -1px 0px rgba(255,255,255,.2);
   }
 
+.bouton_retour_menu:hover {
+	cursor: pointer;
+}
+
 div#divTitle {
 	background-color: #085f4b;
 	box-shadow: 0 4px 4px -2px #555;
