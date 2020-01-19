@@ -214,6 +214,15 @@ textarea {
 	margin: 1px 5px 0px 5px;
 }
 
+.message img {
+	max-width: 100%;
+    max-height: 100%;
+}
+
+.message img:hover {
+	cursor: pointer;
+}
+
 .exp {
 	background-color: #E2FFC4;
 	float: right;
@@ -232,3 +241,49 @@ button::-moz-focus-inner {
 button:focus, button:active {
 	outline: none;
 }
+
+
+
+
+
+
+.show {
+    z-index: 2000;
+    display: none;
+}
+.show .overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.66);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.show .img-show {
+    width: 634.5px;
+    height: 705px;
+    background: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+}
+
+.img-show span {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+    cursor: pointer;
+    color: white;
+}
+
+.img-show img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*End style*/

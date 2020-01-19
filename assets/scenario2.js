@@ -1,12 +1,57 @@
 const contacts = ["Alice", "H", "Benjamin", "Nathan", "Ninon", "Galoup", "Jeanne", "Marco"];
 
+// Déclaration des src des images présentes dans les messages à afficher en popup après un click. Utilisation de ce src dans la fonction popupImage() des fichiers contact.html
+const popIm = ["assets/images/labyrintheh.jpg"];
+
 var chapitres = [
+	{
+		scenes: [
+			{
+				contact: "Alice",
+				dialogues: [
+					{ perso: "Alice", message: "Salut Julien" },
+					{ perso: "Alice", message: "Tu vas bien ?" },
+					{ perso: "Alice", message: "Prêt pour le début du jeu ?" },
+					{ perso: "Julien", message: "Évidemment Alice. T'es où ?" },
+					{ perso: "Julien", message: "Moi je suis en salle informatique" },
+					{ perso: "Alice", message: "À la BU" },
+					{ perso: "Alice", message: "La première énigme ne va pas tarder" },
+					{ perso: "Julien", message: "On va tous recevoir quelque chose sur nos portables ?" },
+					{ perso: "Alice", message: "Oui, une photo, un code, une citation…" },
+					{ perso: "Alice", message: "Envoyé par H, le Maître du jeu" },
+					{ perso: "Alice", message: "C’est comme ça que le jeu commence" },
+					{ perso: "Alice", message: "Ça y est, on a reçu un message ! 😱" }
+				],
+				suite: "H"
+			},
+			{
+				contact: "H",
+				dialogues: [
+					{ perso: "H", message: "Qui entre en jeu ?" }
+				],
+				suite: "Alice"
+			},
+			{
+				contact: "Alice",
+				dialogues: [
+					{ perso: "Alice", message: "Bon c'est facile" },
+					{ perso: "Alice", message: "Il suffit de répondre \"moi\"" }
+				]
+			}
+		],
+		question: {
+			perso: "H",
+			reponses: ["moi", "julien"],
+			erreurs: "Ce n'est pas ce que j'attends",
+			reussite: "Bienvenue"
+		}
+	},
 	{
 		scenes: [{
 			contact: "H",
 			dialogues: [
 				{ perso: "H", message: "<a href='ascii_h.html' target='_blank'>Clique sur ce lien</a>" },
-				{ perso: "H", message: "01101000<br />01101001<br />01101010" },
+				{ perso: "H", message: "01100101<br />01100110<br />01100111" },
 				{ perso: "H", message: "Quel est le nombre qui suit ?" }
 			],
 			suite: "Alice"
@@ -28,11 +73,11 @@ var chapitres = [
 		indices: [
 			{
 				perso: "Alice",
-				message: "Il s’agit d’un code informatique"
+				message: "Il s’agit d’un code informatique. Le code binaire"
 			},
 			{
 				perso: "Alice",
-				message: "C’est le code binaire. Chaque nombre correspond à une lettre. C’est la base de l’informatique. Trouve une grille ou un convertisseur"
+				message: "Le code binaire est la base de l’informatique. Chaque nombre correspond à un signe ou une lettre. Trouve les correspondances. Tu peux aussi utiliser un convertisseur sur internet"
 			},
 			{
 				perso: "Alice",
@@ -45,14 +90,14 @@ var chapitres = [
 			contact: "H",
 			dialogues: [
 				{ perso: "H", message: "Maintenant résous cette énigme" },
-				{ perso: "H", message: "Des parties de code se trouvent dans 'decimal'" }
+				{ perso: "H", message: "Des parties de code se trouvent dans “decimal”" }
 			],
 			suite: "Alice"
 		},
 		{
 			contact: "Alice",
 			dialogues: [
-				{ perso: "Alice", message: "Bonne chance Julien. N’oublie pas que je suis là si tu es vraiment coincé" },
+				{ perso: "Alice", message: "Bonne chance Julien. N’oublie pas que si tu as besoin d’aide, tu peux me demander" },
 				{ perso: "Alice", message: "Mais cherche par toi même au maximum &#128515;" }
 			]
 		}],
@@ -60,7 +105,7 @@ var chapitres = [
 			perso: "H",
 			reponses: ["100 101 099", "100101099", "100101 099", "100 101099", "099 100 101", "099100101", "099100 101", "099 100101", "099 101 100", "099101100", "099101 100", "099 101100", "100 099 101", "100099101", "100099 101", "100 099101", "100 101 099", "100101099", "100101 099", "100 101099", "101 099 100", "101099100", "101099 100", "101 099100", "101 100 099", "101100099", "101100 099", "101 100099"],
 			erreurs: "Ce n’est pas ce que j’attends",
-			reussite: "<a href='horloge_h.html' target='_blank'>Clique sur ce lien</a>"
+			reussite: "Maintenant, <a href='horloge_h.html' target='_blank'>clique sur ce lien</a>"
 		},
 		indices: [
 			{
@@ -81,14 +126,14 @@ var chapitres = [
 		scenes: [{
 			contact: "H",
 			dialogues: [
-				{ perso: "H", message: "Quel est l’indice ?" }
+				{ perso: "H", message: "Quel est le mot clé ?" }
 			]
 		}],
 		question: {
 			perso: "H",
 			reponses: ["localisation", "Localisation", "LOCALISATION"],
 			erreurs: "Ce n’est pas ce que j’attends",
-			reussite: "Bravo"
+			reussite: "Correct"
 		},
 		indices: [
 			{
@@ -101,7 +146,39 @@ var chapitres = [
 			},
 			{
 				perso: "Alice",
-				message: "Le mot se lit dans le sens des aiguilles de l’horloge"
+				message: "Le mot se lit dans le sens des aiguilles de l’horloge, en commençant par le nombre placé à midi"
+			},
+			{
+				perso: "Alice",
+				message: "Je ne vais pas tout faire à ta place"
+			}
+		]
+	},
+	{
+		scenes: [{
+			contact: "H",
+			dialogues: [
+				{ perso: "H", message: "L’indice se trouve dans le code source de la page" }
+			]
+		}],
+		question: {
+			perso: "H",
+			reponses: ["CLST N", "CLSTN", "C L S T N", "clstn", "c l s t n"],
+			erreurs: "Ce n’est pas ce que j’attends",
+			reussite: "Bravo"
+		},
+		indices: [
+			{
+				perso: "Alice",
+				message: "Il faut afficher le code source de la page. C’est ce qui permet de visualiser le code HTML de la page. Fais clic droit dans la page, puis “examiner l’élément”, ou bien “code source de la page”"
+			},
+			{
+				perso: "Alice",
+				message: "Suis la procédure indiquée dans les consignes, à partir du mot “localisation”"
+			},
+			{
+				perso: "Alice",
+				message: "Tu dois arriver à 5 lettres"
 			},
 			{
 				perso: "Alice",
@@ -114,9 +191,10 @@ var chapitres = [
 			contact: "H",
 			dialogues: [
 				{ perso: "H", message: "Tu as presque terminé ce premier round" },
-				{ perso: "H", message: "<a href='labyrinthe_h.html' target='_blank'>Clique sur ce lien</a>" },
+				// nbrIm renvoie à la case du tableau popIm correspondante
+				{ perso: "H", message: "<img src='assets/images/labyrintheh.jpg' onclick='nbrIm = 0; popupImage()'/>" },
 				{ perso: "H", message: "Sors du labyrinthe en 5 commandes" },
-				{ perso: "H", message: "De type: direction (nombre de cases)" },
+				{ perso: "H", message: "De type: direction(nombre de cases)" },
 				{ perso: "H", message: "Envoie une commande après l'autre par message" }
 			]
 		}],
@@ -125,33 +203,33 @@ var chapitres = [
 		{
 			perso: "H",
 			/** reponses: ["droite(3) haut(2) gauche(2)", "droite(3)haut(2)gauche(2)", "droite(3), haut(2), gauche(2)", "droite(3),haut(2),gauche(2)", "Droite(3) Haut(2) Gauche(2)", "Droite(3)Haut(2)Gauche(2)", "Droite(3), Haut(2), Gauche(2)", "Droite(3),Haut(2),Gauche(2)", "DROITE(3) HAUT(2) GAUCHE(2)", "DROITE(3)HAUT(2)GAUCHE(2)", "DROITE(3), HAUT(2), GAUCHE(2)", "DROITE(3),HAUT(2),GAUCHE(2)", "droite(3) haut(2) gauche(2) haut(1) droite(2)", "droite(3), haut(2), gauche(2), haut(1), droite(2)", "droite(3),haut(2),gauche(2),haut(1),droite(2)", "droite(3)haut(2)gauche(2)haut(1)droite(2)", "Droite(3) Haut(2) Gauche(2) Haut(1) Droite(2)", "Droite(3), Haut(2), Gauche(2), Haut(1), Droite(2)", "Droite(3),Haut(2),Gauche(2),Haut(1),Droite(2)", "Droite(3)Haut(2)Gauche(2)Haut(1)Droite(2)", "DROITE(3) HAUT(2) GAUCHE(2) HAUT(1) DROITE(2)", "DROITE(3), HAUT(2), GAUCHE(2), HAUT(1), DROITE(2)", "DROITE(3),HAUT(2),GAUCHE(2),HAUT(1),DROITE(2)", "DROITE(3)HAUT(2)GAUCHE(2)HAUT(1)DROITE(2)","droite(3) haut(2) gauche(2) haut(1) droite(3)", "droite(3), haut(2), gauche(2), haut(1), droite(3)", "droite(3),haut(2),gauche(2),haut(1),droite(3)", "droite(3)haut(2)gauche(2)haut(1)droite(3)", "Droite(3) Haut(2) Gauche(2) Haut(1) Droite(3)", "Droite(3), Haut(2), Gauche(2), Haut(1), Droite(3)", "Droite(3),Haut(2),Gauche(2),Haut(1),Droite(3)", "Droite(3)Haut(2)Gauche(2)Haut(1)Droite(3)", "DROITE(3) HAUT(2) GAUCHE(2) HAUT(1) DROITE(3)", "DROITE(3), HAUT(2), GAUCHE(2), HAUT(1), DROITE(3)", "DROITE(3),HAUT(2),GAUCHE(2),HAUT(1),DROITE(3)", "DROITE(3)HAUT(2)GAUCHE(2)HAUT(1)DROITE(3)"], **/
-			reponses: ["droite(3)", "Droite(3)", "DROITE(3)"],
+			reponses: ["droite(3)", "Droite(3)", "DROITE(3)", "droite (3)", "Droite (3)", "DROITE (3)"],
 			erreurs: "Non. Recommence",
 			reussite: "Oui"
 		},
 		{
 			perso: "H",
-			reponses: ["haut(2)", "Haut(2)", "HAUT(2)"],
+			reponses: ["haut(2)", "Haut(2)", "HAUT(2)", "haut (2)", "Haut (2)", "HAUT (2)"],
 			erreurs: "Non. Recommence",
 			reussite: "Oui"
 		},
 		{
 			perso: "H",
-			reponses: ["gauche(2)", "Gauche(2)", "GAUCHE(2)"],
+			reponses: ["gauche(2)", "Gauche(2)", "GAUCHE(2)", "gauche (2)", "Gauche (2)", "GAUCHE (2)"],
 			erreurs: "Non. Recommence",
 			reussite: "Oui"
 		},
 		{
 			perso: "H",
-			reponses: ["haut(1)", "Haut(1)", "HAUT(1)"],
+			reponses: ["haut(1)", "Haut(1)", "HAUT(1)", "haut (1)", "Haut (1)", "HAUT (1)"],
 			erreurs: "Non. Recommence",
 			reussite: "Oui"
 		},
 		{
 			perso: "H",
-			reponses: ["droite(2)", "Droite(2)", "DROITE(2)", "droite(3)", "Droite(3)", "DROITE(3)"],
+			reponses: ["droite(2)", "Droite(2)", "DROITE(2)", "droite(3)", "Droite(3)", "DROITE(3)", "droite (2)", "Droite (2)", "DROITE (2)", "droite (3)", "Droite (3)", "DROITE (3)"],
 			erreurs: "Non. Recommence",
-			reussite: "Oui"
+			reussite: "Félicitation"
 		}],
 		indices: [
 			{
@@ -164,12 +242,22 @@ var chapitres = [
 			},
 			{
 				perso: "Alice",
-				message: "Envoie ta liste de 5 commandes à H. Une commande par message"
+				message: "Envoie ta liste de 5 commandes à H; une commande par message"
 			},
 			{
 				perso: "Alice",
 				message: "Je ne vais pas tout faire à ta place"
 			}
 		]
+	},
+	{
+		scenes: [{
+			contact: "H",
+			dialogues: [
+				{ perso: "H", message: "Tu sembles être un joueur sérieux. Tu fais partie de ceux qui ont réussi" },
+				{ perso: "H", message: "D’autres épreuves t’attendent" },
+				{ perso: "H", message: "Seras-tu le gagnant ?" }
+			]
+		}]
 	}
 ];

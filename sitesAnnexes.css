@@ -10,5 +10,5 @@ html, body {
 
 canvas {
   align-self: center;
-  cursor: move;
+  cursor: pointer;
 }

@@ -109,7 +109,7 @@
 		function addContacts() {
 			for (let c in contacts) {
 				let cell = tabContacts.insertRow(nbContacts).insertCell(0);
-				if(contacts[c] == "H") {
+				if(contacts[c] == "Alice") {
 					cell.innerHTML = '<a href="contact2.html?contact=' + contacts[c]
 					+ '"><table><tr><td rowspan="2"><img src="assets/images/characters/' + contacts[c]
 					+ '.png" class="contactImg" /></td><td><p class="nom">' + contacts[c]

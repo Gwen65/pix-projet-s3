@@ -14,6 +14,8 @@
 
 	<!-- Fichier de données liées au scénario -->
 	<script src="assets/scenario.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
 </head>
 
 <body>
@@ -47,6 +49,17 @@
 		</table>
 	</div>
 
+	<!-- POPUP -->
+<div class="show">
+  <div class="overlay"></div>
+  <div class="img-show">
+    <span>X</span>
+    <img src="">
+  </div>
+</div>
+<!--End image popup-->
+<!--End image popup-->
+
 	<script>
 
 		// Variables pour gérer le contenu sur la page
@@ -70,6 +83,10 @@
 		// Variables concernant le scénario
 		var indices, dialogues, question;
 		var questions = [];
+		var popIms = [];
+		for (i = 0; i < popIm.length; i++) {
+							popIms[i] = popIm[i];
+		}
 		var nbQuest = 0;
 		var messages = localStorage.getItem("dialogues" + contact) == null ? [] : JSON.parse(localStorage.getItem("dialogues" + contact));
 		var derniersMessages = JSON.parse(localStorage.getItem("derniersMessages"));
@@ -83,7 +100,7 @@
 						dialogues = chapitres[nbChapitre].scenes[nbScene].dialogues;
 					}
 					indices = chapitres[nbChapitre].indices;
-					if (nbChapitre == 5){
+					if (nbChapitre == 6){
 						for (i = 0; i < chapitres[nbChapitre].questions.length; i++) {
 							questions[i] = chapitres[nbChapitre].questions[i];
 						}
@@ -170,6 +187,9 @@
 						localStorage.setItem("nbMessagesScene", 0);
 						getScene(nbChapitre, nbScene);
 					}
+					else if(nbChapitre == 7){
+					setTimeout(achat, 2600);
+				}
 				}
 			} else {
 				document.getElementById("messageArea").disabled = false;
@@ -194,7 +214,7 @@
 				scrollBar.scrollTo(0, scrollBar.scrollHeight);
 				ps.update();
 				nbMessages++;
-				if (nbChapitre == 5){
+				if (nbChapitre == 6){
 						verifReponse2(text);
 				}
 				else{
@@ -260,7 +280,16 @@
 						nbQuest = nbQuest+1;
 					}
 					else {
-						setTimeout(achat, 2600);
+						nbScene = 0;
+						nbChapitre++;
+						nbMessagesScene = 0;
+						nbIndice = 0;
+						localStorage.setItem("nbScene", nbScene);
+						localStorage.setItem("nbChapitre", nbChapitre);
+						localStorage.setItem("nbMessagesScene", nbMessagesScene);
+						localStorage.setItem("nbIndice", nbIndice);
+						getScene(nbChapitre, nbScene);
+						setTimeout(playScene, 2500);
 					}
 				} else {
 					addNewMessage(questions[nbQuest].erreurs, contact);
@@ -315,6 +344,19 @@
 		addAllMessages();
 		getScene(nbChapitre, nbScene);
 		playScene();
+
+
+		function popupImage() {
+    	"use strict";
+    
+        	$(".show").fadeIn();
+        	$(".img-show img").attr("src", popIms[nbrIm]);
+    
+    	$("span, .overlay").click(function () {
+        	$(".show").fadeOut();
+    	});
+    
+		};
 
 	</script>
 
