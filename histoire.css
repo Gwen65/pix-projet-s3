@@ -37,6 +37,7 @@ body {
 .continuerButton:hover {
 	background: url("assets/images/boutons/Continuer_2.png");
 	background-size: 267px 86px;
+	cursor: pointer;
 }
 
 .nouveauButton {
@@ -53,6 +54,7 @@ body {
 .nouveauButton:hover {
 	background: url("assets/images/boutons/Nouveau_2.png");
 	background-size: 267px 86px;
+	cursor: pointer;
 }
 
 .chapitresButton {

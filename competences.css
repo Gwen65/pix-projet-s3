@@ -50,4 +50,5 @@ button:focus, button:active {
 .programmerButton:hover {
 	background: url("assets/images/boutons/Bouton_programmer_hover.png");
 	background-size: 267px 86px;
+	cursor: pointer;
 }

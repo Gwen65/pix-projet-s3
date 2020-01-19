@@ -242,6 +242,10 @@ button:focus, button:active {
 	outline: none;
 }
 
+button:hover {
+	cursor: pointer;
+}
+
 
 
 

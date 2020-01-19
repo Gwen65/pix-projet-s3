@@ -186,6 +186,10 @@ button:focus, button:active {
 	outline:none;
 }
 
+button:hover {
+	cursor: pointer;
+}
+
 
 
 
@@ -267,6 +271,7 @@ button:focus, button:active {
   background: url("assets/images/boutons/Bouton_Retour_hover.png") no-repeat;
   -webkit-background-size: cover; /* pour anciens Chrome et Safari */
   background-size: cover; /* version standardisée */
+  cursor: pointer;
 }
 #btnNext {
   position: absolute;
@@ -280,4 +285,5 @@ button:focus, button:active {
   background: url("assets/images/boutons/Bouton_Suivant_hover.png") no-repeat;
   -webkit-background-size: cover; /* pour anciens Chrome et Safari */
   background-size: cover; /* version standardisée */
+  cursor: pointer;
 }

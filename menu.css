@@ -37,6 +37,7 @@ body {
 .histoireButton:hover {
 	background: url("assets/images/boutons/Histoire_2.png");
 	background-size: 267px 86px;
+	cursor: pointer;
 }
 
 .competencesButton {
@@ -53,6 +54,7 @@ body {
 .competencesButton:hover {
 	background: url("assets/images/boutons/Competences_2.png");
 	background-size: 267px 86px;
+	cursor: pointer;
 }
 
 .glossaireButton {
@@ -67,4 +69,5 @@ body {
 .glossaireButton:hover {
 	background: url("assets/images/boutons/Glossaire_2.png");
 	background-size: 267px 86px;
+	cursor: pointer;
 }
