@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
 	<title>Pix Série - Labyrinthe</title>
+  <link rel="stylesheet" href="sitesAnnexes.css">
 
 
 	
@@ -31,7 +32,7 @@ html, body {
 
 canvas {
   align-self: center;
-  cursor: move;
+  cursor: pointer;
 }
 
 </style>
@@ -42,7 +43,7 @@ document.ready(function(){
   var c = document.getElementById('canv');
   var $ = c.getContext('2d');
   c.width = 473; c.height = 520; 
-  var ms = false;
+  var ms = true;
   var w = 0, h = 0;
   
   var img = new Image();
@@ -54,7 +55,7 @@ document.ready(function(){
     h = img.height;
     $.translate(50, 50);
     // Intensité du Glitch
-    a = 25;
+    a = 15;
     dx = 0;
     _w = w + 50;
     _h = h + 50;
@@ -63,7 +64,7 @@ document.ready(function(){
       $.clearRect(-a, -a, _w, _h);
       inc = ms === true ? 0.5 : 0.18;
       for (j=0; j <= h; i = 0 <= h ? ++j : --j) {
-        dx = ~~(inc * (Math.random() - 0.5) * a);
+        dx = ~~(inc * (Math.random() - 0.5) * 15);
         $.drawImage(img, 0, i, w, 1, dx, i, w, 1);
       }
       window.requestAnimationFrame(run);
@@ -73,17 +74,17 @@ document.ready(function(){
     return set();
   };
   c.addEventListener('mouseover', function(){
-    return ms = true;
+    return ms = false;
   }, false);
   c.addEventListener('touchmove',function(e){
     e.preventDefault();
-    return ms = true;
+    return ms = false;
   }, false);
   c.addEventListener('mouseout', function(){
-    return ms = false;
+    return ms = true;
   }, false);
   c.addEventListener('touchend',function(){
-    return ms = false;
+    return ms = true;
   }, false);
 }());
 </script>

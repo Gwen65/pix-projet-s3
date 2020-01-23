@@ -167,11 +167,11 @@ var chapitres = [
 			},
 			{
 				perso: "Alice",
-				message: "Convertis les nombres en lettres, en utilisant la grille hexadécimale"
+				message: "Convertis tous les nombres en lettres, en utilisant la grille hexadécimale"
 			},
 			{
 				perso: "Alice",
-				message: "Le mot se lit dans le sens des aiguilles de l’horloge, en commençant par le nombre placé à mid"
+				message: "Le mot se lit dans le sens des aiguilles d'une montre, en commençant par le nombre placé à midi"
 			},
 			{
 				perso: "Alice",
@@ -195,7 +195,7 @@ var chapitres = [
 		indices: [
 			{
 				perso: "Alice",
-				message: "Il faut afficher le code source de la page. C’est ce qui permet de visualiser le code HTML de la page. Fais clic droit dans la page, puis “examiner l’élément”, ou bien “code source de la page”"
+				message: "Il faut afficher le code source de la page de l’horloge. C’est ce qui permet de visualiser le code HTML de la page. Fais clic droit dans la page, puis “code source de la page”, ou bien “examiner l’élément”"
 			},
 			{
 				perso: "Alice",
@@ -217,7 +217,8 @@ var chapitres = [
 			dialogues: [
 				{ perso: "H", message: "Tu as presque passé ce premier round" },
 				// nbrIm renvoie à la case du tableau popIm correspondante
-				{ perso: "H", message: "<img src='assets/images/labyrintheh.jpg' onclick='nbrIm = 0; popupImage()'/>" },
+				// { perso: "H", message: "<img src='assets/images/labyrintheh.jpg' onclick='nbrIm = 0; popupImage()'/>" }
+				{ perso: "H", message: "Clique sur l'image<br /><a href='labyrinthe_h.html' target='_blank'><img src='assets/images/labyrintheh.jpg'/></a>" },
 				{ perso: "H", message: "Sors du labyrinthe en 5 commandes" },
 				{ perso: "H", message: "De type: direction (nombre de cases)" },
 				{ perso: "H", message: "Envoie une commande après l'autre par message" }
@@ -228,33 +229,33 @@ var chapitres = [
 		{
 			perso: "H",
 			/** reponses: ["droite(3) haut(2) gauche(2)", "droite(3)haut(2)gauche(2)", "droite(3), haut(2), gauche(2)", "droite(3),haut(2),gauche(2)", "Droite(3) Haut(2) Gauche(2)", "Droite(3)Haut(2)Gauche(2)", "Droite(3), Haut(2), Gauche(2)", "Droite(3),Haut(2),Gauche(2)", "DROITE(3) HAUT(2) GAUCHE(2)", "DROITE(3)HAUT(2)GAUCHE(2)", "DROITE(3), HAUT(2), GAUCHE(2)", "DROITE(3),HAUT(2),GAUCHE(2)", "droite(3) haut(2) gauche(2) haut(1) droite(2)", "droite(3), haut(2), gauche(2), haut(1), droite(2)", "droite(3),haut(2),gauche(2),haut(1),droite(2)", "droite(3)haut(2)gauche(2)haut(1)droite(2)", "Droite(3) Haut(2) Gauche(2) Haut(1) Droite(2)", "Droite(3), Haut(2), Gauche(2), Haut(1), Droite(2)", "Droite(3),Haut(2),Gauche(2),Haut(1),Droite(2)", "Droite(3)Haut(2)Gauche(2)Haut(1)Droite(2)", "DROITE(3) HAUT(2) GAUCHE(2) HAUT(1) DROITE(2)", "DROITE(3), HAUT(2), GAUCHE(2), HAUT(1), DROITE(2)", "DROITE(3),HAUT(2),GAUCHE(2),HAUT(1),DROITE(2)", "DROITE(3)HAUT(2)GAUCHE(2)HAUT(1)DROITE(2)","droite(3) haut(2) gauche(2) haut(1) droite(3)", "droite(3), haut(2), gauche(2), haut(1), droite(3)", "droite(3),haut(2),gauche(2),haut(1),droite(3)", "droite(3)haut(2)gauche(2)haut(1)droite(3)", "Droite(3) Haut(2) Gauche(2) Haut(1) Droite(3)", "Droite(3), Haut(2), Gauche(2), Haut(1), Droite(3)", "Droite(3),Haut(2),Gauche(2),Haut(1),Droite(3)", "Droite(3)Haut(2)Gauche(2)Haut(1)Droite(3)", "DROITE(3) HAUT(2) GAUCHE(2) HAUT(1) DROITE(3)", "DROITE(3), HAUT(2), GAUCHE(2), HAUT(1), DROITE(3)", "DROITE(3),HAUT(2),GAUCHE(2),HAUT(1),DROITE(3)", "DROITE(3)HAUT(2)GAUCHE(2)HAUT(1)DROITE(3)"], **/
-			reponses: ["droite(3)", "Droite(3)", "DROITE(3)"],
+			reponses: ["droite(3)", "Droite(3)", "DROITE(3)", "droite (3)", "Droite (3)", "DROITE (3)", "d(3)", "D(3)", "d (3)", "D (3)"],
 			erreurs: "Non. Recommence",
 			reussite: "Oui"
 		},
 		{
 			perso: "H",
-			reponses: ["haut(2)", "Haut(2)", "HAUT(2)"],
+			reponses: ["haut(2)", "Haut(2)", "HAUT(2)", "haut (2)", "Haut (2)", "HAUT (2)", "h(2)", "H(2)", "h (2)", "H (2)"],
 			erreurs: "Non. Recommence",
 			reussite: "Oui"
 		},
 		{
 			perso: "H",
-			reponses: ["gauche(2)", "Gauche(2)", "GAUCHE(2)"],
+			reponses: ["gauche(2)", "Gauche(2)", "GAUCHE(2)", "gauche (2)", "Gauche (2)", "GAUCHE (2)", "g(2)", "G(2)", "g (2)", "G (2)"],
 			erreurs: "Non. Recommence",
 			reussite: "Oui"
 		},
 		{
 			perso: "H",
-			reponses: ["haut(1)", "Haut(1)", "HAUT(1)"],
+			reponses: ["haut(1)", "Haut(1)", "HAUT(1)", "haut (1)", "Haut (1)", "HAUT (1)", "h(1)", "h (1)", "H(1)", "H (1)"],
 			erreurs: "Non. Recommence",
 			reussite: "Oui"
 		},
 		{
 			perso: "H",
-			reponses: ["droite(2)", "Droite(2)", "DROITE(2)", "droite(3)", "Droite(3)", "DROITE(3)"],
+			reponses: ["droite(2)", "Droite(2)", "DROITE(2)", "droite(3)", "Droite(3)", "DROITE(3)", "droite (2)", "Droite (2)", "DROITE (2)", "droite (3)", "Droite (3)", "DROITE (3)", "d(3)", "D(3)", "d (3)", "D (3)", "d(2)", "D(2)", "d (2)", "D (2)"],
 			erreurs: "Non. Recommence",
-			reussite: "Oui"
+			reussite: "Félicitation"
 		}],
 		indices: [
 			{
